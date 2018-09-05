@@ -5,21 +5,20 @@ const readlineInterface = readline.createInterface({
   output: process.stdout
 });
 
+// readline helper function --
+// asks a question, returns a promise for the answer
 function ask(questionText) {
   return new Promise((resolve, reject) => {
     readlineInterface.question(questionText, resolve);
   });
 }
 
-start();
+// main program here
+start()
 
 async function start() {
-  let name = await ask('What is your name? ');
-  let quest = await ask('What is your quest? ');
-  let color = await ask('What is your favorite color? ');
-  console.log('Hello ' + name + '! ' +
-    'Good luck with ' + quest + ', ' +
-    'and here is a ' + color + ' flower for you.');
+  let name = await ask("What is your name?");
+  console.log("Hello, " + name + "!");
   process.exit();
 }
 
